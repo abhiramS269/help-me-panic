@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Firebase options -->
+    <string name="firebase_database_url" translatable="false">https://console.firebase.google.com/project/embonics-8b782/database/embonics-8b782-default-rtdb/data/~2F</string>
+    <string name="gcm_defaultSenderId" translatable="false">595242001706</string>
+    <string name="google_api_key" translatable="false">AIzaSyBvz0EJYNym_OB6A9FuxwXEVfERQ4BdHIk</string>
+    <string name="google_app_id" translatable="false">1:595242001706:android:734fa22dd8866dab0daa53</string>
+    <string name="project_id" translatable="false">embonics-8b782</string>
+
+    <!-- Add other values as needed -->
+    <!-- Example color definitions -->
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
+    <color name="colorPrimaryNight">#BB86FC</color>
+    <color name="colorPrimaryDarkNight">#3700B3</color>
+    <color name="colorAccentNight">#03DAC5</color>
+    <color name="white">#ECE3E3</color>
+    <color name="black">#000000</color>
+</resources>
