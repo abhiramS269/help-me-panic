@@ -4,8 +4,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:telephony/telephony.dart';
-import 'settings_page.dart';
 import 'LoginPage.dart';
+import 'settings_page.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -81,6 +81,13 @@ class _HomePageState extends State<HomePage> {
     List<String> emergencyNumbers = prefs.getStringList('emergencyNumbers') ?? [];
     String securityPasscode = prefs.getString('securityPasscode') ?? "";
 
+    if (emergencyNumbers.isEmpty || securityPasscode.isEmpty) {
+      setState(() {
+        _smsStatus = 'No saved details found. Cannot send SMS.';
+      });
+      return;
+    }
+
     try {
       for (String number in emergencyNumbers) {
         await telephony.sendSms(to: number, message: "$securityPasscode" + "C");
@@ -125,8 +132,8 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () async => false, // Prevent back navigation
+    return PopScope(
+      onPopInvoked: (popInvoked) async => false, // Prevent back navigation
       child: Scaffold(
         appBar: AppBar(
           title: Text('Home Page'),
